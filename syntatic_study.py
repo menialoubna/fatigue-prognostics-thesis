@@ -76,18 +76,21 @@ plt.show()
 # === Optional: Ask user a cycle and show crack length ===
 try:
     user_cycle = int(input("🔎 Enter a cycle number to check crack length: "))
-    nearest_cycle = data_formatted.iloc[(data_formatted['Cycle']-user_cycle).abs().argsort()[:1]]
+    
+    if user_cycle not in data_formatted['Cycle'].values:
+        print("⚠️ Cycle not available in the dataset.")
+    else:
+        nearest_cycle = data_formatted[data_formatted['Cycle'] == user_cycle]
 
-    crack = nearest_cycle['Crack_Length'].values[0]
-    left = nearest_cycle['Cycles_Left'].values[0]
-    cycle_found = nearest_cycle['Cycle'].values[0]
+        crack = nearest_cycle['Crack_Length'].values[0]
+        left = nearest_cycle['Cycles_Left'].values[0]
+        cycle_found = nearest_cycle['Cycle'].values[0]
 
-    print(f"📈 Closest data point: cycle {cycle_found}")
-    print(f"📈 Crack length = {crack:.6f} meters")
-    print(f"🕐 Remaining cycles until failure = {left}")
+        print(f"📈 Closest data point: cycle {cycle_found}")
+        print(f"📈 Crack length = {crack:.6f} meters")
+        print(f"🕐 Remaining cycles until failure = {left}")
 except Exception as e:
     print("⚠️ Error:", e)
-
 
 
 
