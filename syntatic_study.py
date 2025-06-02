@@ -5,7 +5,7 @@ import re
 import ast
 
 # === Load your training CSV ===
-df = pd.read_csv('training_set2.csv')  # your provided file
+df = pd.read_csv('syntatic_data.csv')  # your provided file
 df.columns = df.columns.str.strip()
 
 # === Extract fields properly ===
