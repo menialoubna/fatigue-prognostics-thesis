@@ -46,8 +46,8 @@ data_formatted = pd.DataFrame({
 })
 
 # === Save the clean CSV ===
-data_formatted.to_csv('training_set_clean_ready_realcycles.csv', index=False)
-print("✅ Saved: training_set_clean_ready_realcycles.csv")
+data_formatted.to_csv('syntatic_data_for_comparaison.csv', index=False)
+print("✅ Saved: syntatic_data_for_comparaison.csv")
 
 # === Plot Crack Length Growth ===
 plt.figure(figsize=(10,5))
